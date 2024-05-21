@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Accueil</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
+        <link href="style/style.css" rel="stylesheet">
+        <script src="./script/accueil.js"></script>
+    </head>
+    <body>
+
+        <div class = boutons-haut-droite>
+            <button id="bouton-liste-medium" class ="bouton-div-haut-droite"> Voir Liste Medium</button>
+            <div id = 'placeBoutons'> </div>
+        </div>
+
+        <h1>Predict'if</h1>
+        <br/>
+        <p>Votre destin vous attend</p>
+        <p>Plongez vous dans le destin ....</p>
+
+        <div style="overflow-x: scroll; overflow-y: hidden ; border: #000000 1px solid; width: 300px; height: 40px;">
+            <table style="width: 600px;"> 
+                <tbody> 
+                <tr id="tabMedium"> </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

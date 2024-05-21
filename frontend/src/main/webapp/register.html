@@ -5,20 +5,14 @@
         <title>Inscription</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src = "./script/register.js"></script>
+        <link href="style/style.css" rel="stylesheet">
 
-        <style>
-            /* Style pour positionner le bouton */
-                .boutons-haut-droite {
-                    position: absolute; /* Positionnement absolu */
-                    top: 10px; /* Distance de 10 pixels du haut */
-                    right: 10px; /* Distance de 10 pixels de la gauche */
-                }
-            </style>
     </head>
     <body>
 
         <div class = "boutons-haut-droite"> 
-            <button id="bouton-accueil" >Accueil</button>
+            <button id="bouton-accueil" class = 'bouton-div-haut-droite'>Accueil</button>
         </div>
 
         <h1>Inscirption</h1>
@@ -43,76 +37,6 @@
         <br/>
         Genre : <input type="text" id="champ-genre" />
         <br/>
-        
         <button id="bouton-register">Register</button>
-
-        <script>
-            $(document).ready( function () {
-                $('#bouton-accueil').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
-
-                    console.log("clic sur le bouton d'acceuil'"); // LOG dans Console Javascript
-                    $('#notification').html("Retour Acceuil..."); // Message pour le paragraphe de notification
-
-                    //aller à la page de connexion
-                    window.location.href = "./index.html"; 
-                });
-
-
-
-                $('#bouton-register').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
-
-                    console.log("clic sur le bouton d'inscirption"); // LOG dans Console Javascript
-                    $('#notification').html("Insctiption..."); // Message pour le paragraphe de notification
-
-                 
-             
-                   
-                    
-
-                    // Appel AJAX
-                    $.ajax({
-                        url: './ActionServlet',
-                        method: 'POST',
-                        data: {
-                            todo: 'inscription',
-                            nom: $('#champ-nom').val(),
-                            prenom: $('#champ-prenom').val(),
-                            telephone : $('#champ-telephone').val(),
-                            adresse : $('#champ-adresse').val(),
-                            email : $('#champ-email').val(),
-                            password : $('#champ-mdp').val(),
-                            dateNaissance : $('#champ-date-naissance').val(),
-                            genre : $('#champ-genre').val()
-                    
-
-                        },
-                        dataType: 'json'
-                    })
-                    .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
-                        console.log('Response',response); // LOG dans Console Javascript
-                        if (response.inscription) {
-                            
-                            
-                            
-                            $('#notification').html("inscription réussie ");  // Message pour le paragraphe de notification
-                            document.location.href = "index.html";
-                            // TODO: afficher les informations du client dans la notification
-                            // Exemple: Connexion de Ada Lovelace (ID 1)
-                            
-                        }
-                        else {
-                            $('#notification').html("inscription po réussie"); // Message pour le paragraphe de notification
-                        }
-                    })
-                    .fail( function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
-                        console.log('Error',error); // LOG dans Console Javascript
-                        alert("Erreur lors de l'appel AJAX");
-                    })
-                    .always( function () { // Fonction toujours appelée
-                        
-                    });
-                });
-            });
-        </script>
     </body>
 </html>
