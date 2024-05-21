@@ -20,6 +20,7 @@
         <br/>
         <button id="bouton-connexion">Connexion</button>
         <button id="bouton-inscription">Inscription</button>
+        <button id="bouton-acceuil">Accueil</button>
         <!-- Lien vers l'accueil -->
         <p><a href="index.html">Retour à la page d'Accueil</a></p>
         
@@ -48,7 +49,14 @@
                     .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
                         console.log('Response',response); // LOG dans Console Javascript
                         if (response.connexion) {
+                           
                             $('#notification').html("Connexion OK");  // Message pour le paragraphe de notification
+                            if(response.utilisateur.type == "Client"){
+                                document.location.href="accueilClientConnecte.html";
+                            }
+                            else{
+                                //document.location.href="accueilClientEmploye.html";
+                            }
                             // TODO: afficher les informations du client dans la notification
                             // Exemple: Connexion de Ada Lovelace (ID 1)
                         }
@@ -67,6 +75,9 @@
                 
                 $('#bouton-inscription').on( 'click', function () {
                    document.location.href="register.html";
+                });
+                $('#bouton-acceuil').on( 'click', function () {
+                   document.location.href="index.html";
                 });
             });
         </script>

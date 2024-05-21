@@ -49,10 +49,10 @@ public class InscriptionUtilisateurAction extends Action{
         
         
         if (service.inscrireClient(user)){
-            request.setAttribute("Inscription", Boolean.TRUE);
+            request.setAttribute("inscription", Boolean.TRUE);
         }
         else{
-            request.setAttribute("Inscription", Boolean.FALSE);
+            request.setAttribute("inscription", Boolean.FALSE);
         }
         
         

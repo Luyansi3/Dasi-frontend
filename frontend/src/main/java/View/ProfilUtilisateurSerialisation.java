@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modele.Client;
+import modele.Employe;
 import service.Service;
 
 /**
@@ -39,25 +40,58 @@ public class ProfilUtilisateurSerialisation extends Serialisation {
         
         JsonObject user = new JsonObject();
         
-        Client userObject = (Client) request.getAttribute("user");
-        
-        if(userObject == null){
+        if(request.getAttribute("type").equals("Client")){
+            Client userObject = (Client) request.getAttribute("user");
+            if(userObject == null){
             container.addProperty("connexion", Boolean.FALSE);
             System.out.println("REFUSED");
-        }
-        else{
+            }
+            else{
+                
+                user.addProperty("type", "Client");
             
             user.addProperty("id", (Long) userObject.getId());
             user.addProperty("nom", (String) userObject.getNom());
             user.addProperty("prenom", (String) userObject.getPrenom());
             user.addProperty("mail", (String) userObject.getMail());
-            //user.addProperty("motDePasse", (String) userObject.getMotDePasse());
+            user.addProperty("tel", (String) userObject.getTel());
+            user.addProperty("adresse", (String) userObject.getAdressePostale());
+            user.addProperty("consultation", (Boolean) userObject.getEnConsultation());
+            user.addProperty("genre", (String) userObject.getGenre());
+
 
 
 
             container.addProperty("connexion", Boolean.TRUE);
             container.add("utilisateur", user);
+             }
         }
+        else{
+            Employe userObject = (Employe) request.getAttribute("user");
+            if(userObject == null){
+            container.addProperty("connexion", Boolean.FALSE);
+            System.out.println("REFUSED");
+            }
+            else{
+            user.addProperty("type", "Employe");
+            user.addProperty("id", (Long) userObject.getId());
+            user.addProperty("nom", (String) userObject.getNom());
+            user.addProperty("prenom", (String) userObject.getPrenom());
+            user.addProperty("mail", (String) userObject.getMail());
+            user.addProperty("tel", (String) userObject.getTel());
+            user.addProperty("adresse", (String) userObject.getAdressePostale());
+            user.addProperty("disponibilite", (Boolean) userObject.getDisponibilite());
+            user.addProperty("nbConsultation", (int) userObject.getNombreConsultations());
+            
+
+            container.addProperty("connexion", Boolean.TRUE);
+            container.add("utilisateur", user);
+            }
+        }
+        
+        
+        
+        
 
         
         
