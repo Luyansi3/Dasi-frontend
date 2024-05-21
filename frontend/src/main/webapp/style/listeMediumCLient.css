@@ -1,0 +1,15 @@
+.boutons-haut-droite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    
+}
+.bouton-div-haut-droite{
+    margin:5px;
+}
+
+table, caption, th, td {
+border: 2px solid skyblue
+}
+

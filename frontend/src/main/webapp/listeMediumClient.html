@@ -7,30 +7,13 @@
         <title>Connecté - Liste Mediums</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
-        <style>
-            /* Style pour positionner le bouton */
-            .boutons-haut-droite {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                
-            }
-
-            .bouton-div-haut-droite{
-                margin:5px;
-            }
-        table, caption, th, td {
-            border: 2px solid skyblue
-            }
-
-
-        </style>
+        <link href="style/listeMediumCLient.css" rel="stylesheet">
         <script src="./script/listeMediumClient.js"></script>
     </head>
     <body>
         <div class = "boutons-haut-droite"> 
-            <button id="bouton-accueil" class ="bouton-div-haut-droite">Acceuil</button> <div id = "placeBoutons"></div>
+            <button id="bouton-accueil" class ="bouton-div-haut-droite">Acceuil</button> 
+            <div id = "placeBoutons"> </div>
         </div>
 
         <h1>Predict'if</h1>
@@ -41,18 +24,7 @@
         <div style="overflow : scroll ; border: #000000 1px solid; width: 70px; height: 300px;">
             <!-- code à généré avec javascript-->
             <table style="width: 50px;">
-                <tbody>
-                    <tr><th> un nom </th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-                    <tr><th> deux noms</th></tr>
-    
-                </tbody>
-                
+                <tbody id="tabMedium"> </tbody>
             </table>
             </div>
 
