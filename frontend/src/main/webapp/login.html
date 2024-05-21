@@ -19,10 +19,10 @@
         Mot de passe: <input type="password" id="champ-password" />
         <br/>
         <button id="bouton-connexion">Connexion</button>
-        
+        <button id="bouton-inscription">Inscription</button>
         <!-- Lien vers l'accueil -->
         <p><a href="index.html">Retour à la page d'Accueil</a></p>
-
+        
         <script>
             $(document).ready( function () {
                 $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
@@ -69,6 +69,10 @@
                     .always( function () { // Fonction toujours appelée
                         
                     });
+                });
+                
+                $('#bouton-inscription').on( 'click', function () {
+                   document.location.href="register.html";
                 });
             });
         </script>
