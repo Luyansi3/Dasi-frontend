@@ -1,0 +1,100 @@
+<!-- il ne manque plus à ajouter les href des pages aux boutons d'en haut à droite-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Connecté - Liste Mediums</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
+        <style>
+            /* Style pour positionner le bouton */
+            .boutons-haut-droite {
+                position: absolute; /* Positionnement absolu */
+                top: 10px; /* Distance de 10 pixels du haut */
+                right: 10px; /* Distance de 10 pixels de la gauche */
+            }
+            .boutons-haut-droite {
+            margin-left: 5px; /* Marge entre les boutons */
+        }
+        table, caption, th, td {
+            border: 2px solid skyblue
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class = "boutons-haut-droite"> 
+            <button id="bouton-liste-medium" > Voir Liste Medium</button>
+            <button id="bouton-historique">Voir historique</button>
+            <button id="bouton-profil-astal">Profil astral</button>
+            <button id="bouton-deconnexion">Log out</button>
+        </div>
+
+        <h1>Predict'if</h1>
+        <br/>
+        <p>Votre destin vous attend</p>
+        <p>Plongez vous dans le destin ....</p>
+
+        <div style="overflow : scroll ; border: #000000 1px solid; width: 70px; height: 300px;">
+            <!-- code à généré avec javascript-->
+            <table style="width: 50px;">
+                <tbody>
+                    <tr><th> un nom <button> coucou </button></th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+                    <tr><th> deux noms</th></tr>
+    
+                </tbody>
+                
+            </table>
+            </div>
+
+        
+
+
+        <script>
+            $(document).ready( function () {
+                $('#bouton-deconnexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton de deconnexion"); // LOG dans Console Javascript
+                    $('#notification').html("Deconnexion..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    window.location.href = "./index.html"; 
+                });
+
+                $('#bouton-profil-astal').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton de profil astral"); // LOG dans Console Javascript
+                    $('#notification').html("Profil astral..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    //window.location.href = "./profilAstral.html"; 
+                });
+
+                $('#bouton-historique').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton de l'historique"); // LOG dans Console Javascript
+                    $('#notification').html("Historique..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    //window.location.href = "./historique.html"; 
+                });
+
+                $('bouton-liste-medium').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton de la liste des medium"); // LOG dans Console Javascript
+                    $('#notification').html("Liste des Medium..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    //window.location.href = "./listeMedium.html"; 
+                });
+            });
+        </script>
+    </body>
+</html>
