@@ -42,4 +42,4 @@ public class AjouterConsultationSerialisation extends Serialisation{
         out.println(gson.toJson(container));
         out.close();
     
-}
+}}
