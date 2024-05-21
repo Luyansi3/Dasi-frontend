@@ -6,9 +6,11 @@ package Controleur;
  * and open the template in the editor.
  */
 
+import Modele.AjouterConsultationAction;
 import Modele.AuthentifierUtilisateurAction;
 import Modele.InscriptionUtilisateurAction;
 import Modele.ListeMediumAction;
+import View.AjouterConsultationSerialisation;
 import View.InscriptionUtilisateurSerialisation;
 import View.ListeMediumSerialisation;
 import View.ProfilUtilisateurSerialisation;
@@ -68,6 +70,13 @@ public class ActionServlet extends HttpServlet {
             case "inscription":{
                 new InscriptionUtilisateurAction(service).executer(request);
                 new InscriptionUtilisateurSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            
+            case "ajouter-consultation":{
+                new AjouterConsultationAction(service).executer(request);
+                new AjouterConsultationSerialisation(service).appliquer(request, response);
                 break;
                 
             }

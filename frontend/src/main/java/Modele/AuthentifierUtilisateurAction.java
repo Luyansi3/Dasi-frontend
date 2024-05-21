@@ -6,9 +6,10 @@
 package Modele;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import service.Service;
 import modele.Client;
-
+import modele.Employe;
 /**
  *
  * @author rgouineaud
@@ -24,15 +25,23 @@ public class AuthentifierUtilisateurAction extends Action {
         System.out.println("------------------------------------- " + service.authentifierClient(request.getParameter("login"), request.getParameter("password")));
           
         Client client = service.authentifierClient(request.getParameter("login"), request.getParameter("password"));
+        Employe employe = service.authentifierEmploye(request.getParameter("login"), request.getParameter("password"));
         
         if(client != null){
             request.setAttribute("user", client);
             request.setAttribute("type", "Client");
-            System.out.println("ezaaez");
+            HttpSession session = request.getSession(true);
+            session.setAttribute("id", client.getId());
+        }
+        else if (employe != null){
+            request.setAttribute("user", employe);
+            request.setAttribute("type", "Employe");
+            HttpSession session = request.getSession(true);
+            session.setAttribute("id", employe.getId());
         }
         else{
-            request.setAttribute("user", service.authentifierEmploye(request.getParameter("login"), request.getParameter("password")));
-            request.setAttribute("type", "Employe");
+            request.setAttribute("user", client);
+            request.setAttribute("type", "Client");
         }
         
     }

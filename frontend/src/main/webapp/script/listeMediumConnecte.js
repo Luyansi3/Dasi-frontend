@@ -45,4 +45,12 @@ $(document).ready( function () {
         //aller à la page de connexion
         //window.location.href = "./listeMedium.html"; 
     });
+    $.ajax({
+        url: './ActionServlet',
+        method: 'POST',
+        data: {
+            todo: 'voirMedium'
+        },
+        dataType: 'json'
+    })
 });
