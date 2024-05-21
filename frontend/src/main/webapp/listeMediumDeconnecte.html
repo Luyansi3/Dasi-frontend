@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class = "boutons-haut-droite"> 
-            <button id="bouton-liste-medium" >Liste Medium</button>
+            <button id="bouton-accueil" >Accueil</button>
             <button id="bouton-connexion">Connexion</button>
         </div>
 
@@ -54,6 +54,16 @@
 
         <script>
             $(document).ready( function () {
+                $('#bouton-accueil').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton de deconnexion"); // LOG dans Console Javascript
+                    $('#notification').html("Deconnexion..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    window.location.href = "./index.html"; 
+                });
+
+
                 $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
 
                     console.log("clic sur le bouton de connexion"); // LOG dans Console Javascript

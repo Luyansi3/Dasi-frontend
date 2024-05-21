@@ -2,13 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Connexion</title>
+        <title>Inscription</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <style>
+            /* Style pour positionner le bouton */
+                .boutons-haut-droite {
+                    position: absolute; /* Positionnement absolu */
+                    top: 10px; /* Distance de 10 pixels du haut */
+                    right: 10px; /* Distance de 10 pixels de la gauche */
+                }
+            </style>
     </head>
     <body>
 
-        <h1>Connexion</h1>
+        <div class = "boutons-haut-droite"> 
+            <button id="bouton-accueil" >Accueil</button>
+        </div>
+
+        <h1>Inscirption</h1>
 
         <!-- Paragraphe avec id="notification" pour les messages de notification -->
         <p id="notification">Veuillez saisir vos informations</p>
@@ -32,12 +45,20 @@
         <br/>
         
         <button id="bouton-register">Register</button>
-        
-        <!-- Lien vers l'accueil -->
-        <p><a href="index.html">Retour à la page d'Accueil</a></p>
 
         <script>
             $(document).ready( function () {
+                $('#bouton-accueil').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+                    console.log("clic sur le bouton d'acceuil'"); // LOG dans Console Javascript
+                    $('#notification').html("Retour Acceuil..."); // Message pour le paragraphe de notification
+
+                    //aller à la page de connexion
+                    window.location.href = "./index.html"; 
+                });
+
+
+
                 $('#bouton-register').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
 
                     console.log("clic sur le bouton d'inscirption"); // LOG dans Console Javascript
