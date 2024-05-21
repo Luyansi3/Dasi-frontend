@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Connexion</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
     </head>
     <body>
 
@@ -48,15 +48,9 @@
                     .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
                         console.log('Response',response); // LOG dans Console Javascript
                         if (response.connexion) {
-                            $nom = response.utilisateur.nom;
-                            $prenom = response.utilisateur.prenom;
-                            $id = response.utilisateur.id;
-                            
-                            
-                            $('#notification').html("Connexion de " + $prenom + " " + $nom + " (ID " + $id + ")");  // Message pour le paragraphe de notification
+                            $('#notification').html("Connexion OK");  // Message pour le paragraphe de notification
                             // TODO: afficher les informations du client dans la notification
                             // Exemple: Connexion de Ada Lovelace (ID 1)
-                            
                         }
                         else {
                             $('#notification').html("Erreur de Connexion"); // Message pour le paragraphe de notification
