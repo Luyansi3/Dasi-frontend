@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Accueil</title>
+        <title>Déconnecté - Accueil</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
         <style>
@@ -20,6 +20,7 @@
             }
 
         </style>
+         <script src="./script/index.js"></script>
     </head>
     <body>
         <div class = "boutons-haut-droite"> 
@@ -49,19 +50,4 @@
             </div>
 
         
-
-
-        <script>
-            $(document).ready( function () {
-                $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
-
-                    console.log("clic sur le bouton de connexion"); // LOG dans Console Javascript
-                    $('#notification').html("Connexion..."); // Message pour le paragraphe de notification
-
-                    //aller à la page de connexion
-                    window.location.href = "./login.html"; 
-                });
-            });
-        </script>
-    </body>
 </html>
