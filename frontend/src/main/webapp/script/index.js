@@ -63,11 +63,9 @@ $( document ).ready(function() {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //réactions aux boutons Deonnecté:
     $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
-
         console.log("clic sur le bouton de Connexion"); // LOG dans Console Javascript
         $('#notification').html("Bouton connexion..."); // Message pour le paragraphe de notification
         window.location.href = "./login.html"; 
- 
     });
     
     $.ajax({
