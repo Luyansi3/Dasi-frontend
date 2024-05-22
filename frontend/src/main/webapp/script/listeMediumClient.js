@@ -1,6 +1,8 @@
 var statutConnexion = true; 
 let htmlBouton; 
 let htmlMedium; 
+let statutPossibleConsultation = false;
+let htmlConsult; 
 
 
 $( document ).ready(function() {
@@ -39,6 +41,18 @@ $( document ).ready(function() {
     }    
     $('#placeBoutons').html(htmlBouton);
     $('#tabMedium').html(htmlMedium); 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    if (!statutPossibleConsultation) //Consulatation impossible pour le moment
+    {
+        htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Aucune consultation disponible pour le moment. </div>';
+        $('#consultation').html(htmlConsulation);
+    }
+
+
+
+
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //réactions aux boutons

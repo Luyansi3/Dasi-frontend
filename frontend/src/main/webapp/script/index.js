@@ -5,7 +5,6 @@ let htmlMedium;
 let htmlConsult; 
 
 
-
 $( document ).ready(function() {
     if (statutConnexion) //le client est connecté 
     {
@@ -25,7 +24,7 @@ $( document ).ready(function() {
     if (attConfirmation)
     {
         htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Votre consultation est en attente de confirmation !</div>';
-        $('#attenteConsultation').html(htmConsult);
+        $('#consultation').html(htmConsult);
     }
 
 
