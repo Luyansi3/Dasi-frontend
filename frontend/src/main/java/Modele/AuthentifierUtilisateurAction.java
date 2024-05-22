@@ -32,12 +32,15 @@ public class AuthentifierUtilisateurAction extends Action {
             request.setAttribute("type", "Client");
             HttpSession session = request.getSession(true);
             session.setAttribute("id", client.getId());
+
+            
         }
         else if (employe != null){
             request.setAttribute("user", (Employe) employe);
             request.setAttribute("type", "Employe");
             HttpSession session = request.getSession(true);
             session.setAttribute("id", employe);
+
         }
         else{
             request.setAttribute("user", client);

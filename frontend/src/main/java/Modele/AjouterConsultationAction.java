@@ -24,11 +24,20 @@ public class AjouterConsultationAction extends Action {
     @Override
     public void executer(HttpServletRequest request){
         System.out.println("Ajouter Consultation Action");
-        HttpSession session = request.getSession(true);
-        Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
-        Medium medium = (Medium) service.rechercherMediumParNom(request.getParameter("medium"));
         
-        request.setAttribute("consultation", service.ajouterConsultation(client, medium));
+        HttpSession session = request.getSession(false);
+        
+        if(session != null){
+            Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
+            Medium medium = (Medium) service.rechercherMediumParNom(request.getParameter("medium"));
+            request.setAttribute("consultation", service.ajouterConsultation(client, medium));
+        }
+        else{
+                System.out.println("Probleme session");
+            }
+        
+        
+        
     }
     
 }

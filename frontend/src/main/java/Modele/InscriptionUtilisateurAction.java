@@ -52,6 +52,7 @@ public class InscriptionUtilisateurAction extends Action{
         if (service.inscrireClient(user)){
             request.setAttribute("inscription", Boolean.TRUE);
             HttpSession session = request.getSession(true);
+            System.out.println(user.getId());
             session.setAttribute("id", user.getId());
         }
         else{

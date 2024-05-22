@@ -8,12 +8,16 @@ package Controleur;
 
 import Modele.AjouterConsultationAction;
 import Modele.AuthentifierUtilisateurAction;
+import Modele.DeconnexionAction;
 import Modele.InscriptionUtilisateurAction;
 import Modele.ListeMediumAction;
+import Modele.VerificationConnexionAction;
 import View.AjouterConsultationSerialisation;
+import View.DeconnexionSerialisation;
 import View.InscriptionUtilisateurSerialisation;
 import View.ListeMediumSerialisation;
 import View.ProfilUtilisateurSerialisation;
+import View.VerificationConnexionSerialisation;
 import dao.JpaUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -77,6 +81,18 @@ public class ActionServlet extends HttpServlet {
             case "ajouter-consultation":{
                 new AjouterConsultationAction(service).executer(request);
                 new AjouterConsultationSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "verification-connexion":{
+                new VerificationConnexionAction(service).executer(request);
+                new VerificationConnexionSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "deconnexion":{
+                new DeconnexionAction(service).executer(request);
+                new DeconnexionSerialisation(service).appliquer(request, response);
                 break;
                 
             }
