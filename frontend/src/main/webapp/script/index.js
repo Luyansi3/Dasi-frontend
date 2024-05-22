@@ -1,6 +1,9 @@
 var statutConnexion = false; 
+var attConfirmation = true; 
 let htmlBouton; 
 let htmlMedium; 
+let htmlConsult; 
+
 
 
 $( document ).ready(function() {
@@ -17,6 +20,13 @@ $( document ).ready(function() {
     $('#placeBoutons').html(htmlBouton);
     htmlMedium = '<th> un nom </th><th> un autre nom </th>';  // à générer en js : même liste pour les 2 status
     $('#tabMedium').html(htmlMedium); 
+
+
+    if (attConfirmation)
+    {
+        htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Votre consultation est en attente de confirmation !</div>';
+        $('#attenteConsultation').html(htmConsult);
+    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

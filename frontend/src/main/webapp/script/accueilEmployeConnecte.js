@@ -14,7 +14,7 @@ $( document ).ready(function() {
     $('#bouton-deconnexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton de deconnexion"); // LOG dans Console Javascript
         $('#notification').html("Deconnexion..."); // Message pour le paragraphe de notification
-        window.location.href = "./accueil.html"; 
+        window.location.href = "./index.html"; 
     });
 
     $('#bouton-commentaires').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
