@@ -1,10 +1,44 @@
-.boutons-haut-droite {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: right;
-    
+body {
+  background-color: #F8F1FC; /* Violet pâle */
+  
 }
+
+h1{
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+
+
+
+button {
+  background-color : #E4BAFC; 
+  color : #3F065C; 
+  display: inline-block;
+  border-radius: 10px;
+  border:double #cccccc;
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #ECD2FB;
+}
+
+
+.boutons-haut-droite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  
+}
+
 .bouton-div-haut-droite{
     margin:5px;
 }
@@ -39,7 +73,7 @@
 
 
 table, caption, th, td {
-border: 2px solid skyblue
+border: 2px solid #E4BAFC
 }
 
 
