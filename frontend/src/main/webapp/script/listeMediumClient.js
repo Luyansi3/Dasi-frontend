@@ -4,6 +4,28 @@ let htmlMedium;
 
 
 $( document ).ready(function() {
+    
+    $.ajax({
+            url: './ActionServlet',
+            method: 'POST',
+            data: {
+                todo: 'voirMedium'
+
+            },
+            dataType: 'json'
+        })
+        .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
+            console.log('Response',response); // LOG dans Console Javascript
+            
+        })
+        .fail( function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
+            console.log('Error',error); // LOG dans Console Javascript
+            alert("Erreur lors de l'appel AJAX");
+        })
+        .always( function () { // Fonction toujours appelée
+
+        });
+    
     if (statutConnexion) //le client est connecté 
     {
         htmlBouton = '<button id="bouton-historique" class ="bouton-div-haut-droite">Voir historique</button> <button id="bouton-profil-astal" class ="bouton-div-haut-droite">Profil astral</button> <button id="bouton-deconnexion"class ="bouton-div-haut-droite">Log out</button> '; 
@@ -24,7 +46,7 @@ $( document ).ready(function() {
 
         console.log("clic sur le bouton du retour à l'accueil"); // LOG dans Console Javascript
         $('#notification').html("Accueil..."); // Message pour le paragraphe de notification
-        window.location.href = "./accueil.html"; 
+        window.location.href = "./index.html"; 
     });
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

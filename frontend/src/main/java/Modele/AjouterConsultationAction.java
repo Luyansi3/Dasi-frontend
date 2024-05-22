@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import service.Service;
 import modele.Consultation;
+import modele.Client;
+import modele.Medium;
 
 /**
  *
@@ -24,8 +26,9 @@ public class AjouterConsultationAction extends Action {
         System.out.println("Ajouter Consultation Action");
         HttpSession session = request.getSession(true);
         Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
+        Medium medium = (Medium) service.rechercherMediumParNom(request.getParameter("medium"));
         
-        request.setAttribute("consultation", service.ajouterConsultation(client, request.getParameter("medium")));
+        request.setAttribute("consultation", service.ajouterConsultation(client, medium));
     }
     
 }

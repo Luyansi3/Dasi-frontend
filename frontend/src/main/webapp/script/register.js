@@ -3,7 +3,7 @@ $(document).ready( function () {
 
         console.log("clic sur le bouton d'accueil'"); // LOG dans Console Javascript
         $('#notification').html("Retour Accueil..."); // Message pour le paragraphe de notification
-        window.location.href = "./accueil.html"; 
+        window.location.href = "./index.html"; 
     });
 
 
@@ -37,7 +37,7 @@ $(document).ready( function () {
                 
     
                 $('#notification').html("inscription réussie ");  // Message pour le paragraphe de notification
-                document.location.href = "accueil.html";
+                document.location.href = "index.html";
                 // TODO: afficher les informations du client dans la notification
                 // Exemple: Connexion de Ada Lovelace (ID 1)
                 

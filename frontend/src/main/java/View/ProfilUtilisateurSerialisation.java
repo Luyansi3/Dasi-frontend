@@ -37,10 +37,11 @@ public class ProfilUtilisateurSerialisation extends Serialisation {
         
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         JsonObject container = new JsonObject();
-        
+
         JsonObject user = new JsonObject();
         
-        if(request.getAttribute("type").equals("Client")){
+        
+        if(request.getAttribute("type") == "Client"){
             Client userObject = (Client) request.getAttribute("user");
             if(userObject == null){
             container.addProperty("connexion", Boolean.FALSE);
@@ -48,8 +49,7 @@ public class ProfilUtilisateurSerialisation extends Serialisation {
             }
             else{
                 
-                user.addProperty("type", "Client");
-            
+                user.addProperty("type", (String) "Client");
             user.addProperty("id", (Long) userObject.getId());
             user.addProperty("nom", (String) userObject.getNom());
             user.addProperty("prenom", (String) userObject.getPrenom());
@@ -61,9 +61,11 @@ public class ProfilUtilisateurSerialisation extends Serialisation {
 
 
 
-
+                
             container.addProperty("connexion", Boolean.TRUE);
+            
             container.add("utilisateur", user);
+            
              }
         }
         else{

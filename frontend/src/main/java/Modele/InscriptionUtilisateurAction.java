@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import service.Service;
 import modele.Client;
 
@@ -50,6 +51,8 @@ public class InscriptionUtilisateurAction extends Action{
         
         if (service.inscrireClient(user)){
             request.setAttribute("inscription", Boolean.TRUE);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("id", user.getId());
         }
         else{
             request.setAttribute("inscription", Boolean.FALSE);

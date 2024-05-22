@@ -44,7 +44,7 @@
                     $('#notification').html("Retour Acceuil..."); // Message pour le paragraphe de notification
 
                     //aller à la page de connexion
-                    window.location.href = "./accueil.html"; 
+                    window.location.href = "./index.html"; 
                 });
 
                 $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
@@ -72,11 +72,11 @@
                         if (response.connexion) {
                            
                             $('#notification').html("Connexion OK");  // Message pour le paragraphe de notification
-                            if(response.utilisateur.type == "Client"){
-                                document.location.href="accueilClientConnecte.html";
+                            if(response.utilisateur.type == "Client" ){
+                                document.location.href="index.html";
                             }
-                            else{
-                                //document.location.href="accueilClientEmploye.html";
+                            else if (response.utilisateur.type == "Employe"){
+                                document.location.href="accueilEmployeConnecte.html";
                             }
                             // TODO: afficher les informations du client dans la notification
                             // Exemple: Connexion de Ada Lovelace (ID 1)
@@ -98,7 +98,7 @@
                    document.location.href="register.html";
                 });
                 $('#bouton-acceuil').on( 'click', function () {
-                   document.location.href="accueil.html";
+                   document.location.href="index.html";
                 });
             });
         </script>
