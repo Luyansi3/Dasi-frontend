@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Connecté Employé - Accueil</title>
+        <title>Connecté - Accueil</title>
         <!-- Librairie Javascript: jQuery (v3.4.1) -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
         <link href="style/style.css" rel="stylesheet">
@@ -10,19 +10,13 @@
     </head>
     <body>
         <div class = "boutons-haut-droite"> 
-            <button id="bouton-commentaires" > Commentaires </button>
-            <button id="bouton-deconnexion">Log out</button>
+            <button id="bouton-commentaires" class = 'bouton-div-haut-droite' > Commentaires </button>
+            <button id="bouton-deconnexion" class = 'bouton-div-haut-droite'>Log out</button>
         </div>
-
-        <div id="Consultation"></div>
-
-        <h1>Predict'if</h1>
+        <h1>Bienvenue</h1>
         <br/>
-        <p>Votre destin vous attend</p>
-        <p>Plongez vous dans le destin ....</p>
-
-        <div style="overflow-x: scroll; overflow-y: hidden ; border: #000000 1px solid; width: 300px; height: 40px;"> </div>
-
-    
+        <div id="consultation"></div>
+        <div id="top5"></div>
+        <div id = repartition> </div>
     </body>
 </html>
