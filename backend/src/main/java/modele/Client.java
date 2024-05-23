@@ -47,7 +47,7 @@ public class Client {
     private Boolean enConsultation;
 
     public Client() {
-        this.consultations = new ArrayList<>();
+        this.consultations = new ArrayList<>(); // IL manque this.enConsultation = false; !!!!
     }
     
     public Client(String nom, String prenom, String genre, String mail, String motDePasse, String tel, String adressePostale, Date dateNaissance) {

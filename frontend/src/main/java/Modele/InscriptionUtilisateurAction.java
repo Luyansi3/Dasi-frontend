@@ -29,7 +29,7 @@ public class InscriptionUtilisateurAction extends Action{
     public void executer(HttpServletRequest request) {
          System.out.println("Inscription Utilisateur Action");
          
-        Client user = new Client();
+        
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         
@@ -38,21 +38,13 @@ public class InscriptionUtilisateurAction extends Action{
         } catch (ParseException ex) {
             Logger.getLogger(InscriptionUtilisateurAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        user.setAdressePostale(request.getParameter("adresse"));
-        user.setMail(request.getParameter("email"));
-        user.setDateNaissance(date);
-        user.setGenre(request.getParameter("genre"));
-        user.setMotDePasse(request.getParameter("password"));
-        user.setNom(request.getParameter("nom"));
-        user.setPrenom(request.getParameter("prenom"));
-        user.setTel(request.getParameter("telephone"));
+        Client user = new Client(request.getParameter("nom"), request.getParameter("prenom"),request.getParameter("genre"), request.getParameter("email"),request.getParameter("password"),request.getParameter("telephone"), request.getParameter("adresse"), date  );
+
         
         
         if (service.inscrireClient(user)){
             request.setAttribute("inscription", Boolean.TRUE);
             HttpSession session = request.getSession(true);
-            System.out.println(user.getId());
             session.setAttribute("id", user.getId());
         }
         else{

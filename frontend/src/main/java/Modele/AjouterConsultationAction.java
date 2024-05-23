@@ -30,7 +30,8 @@ public class AjouterConsultationAction extends Action {
         if(session != null){
             Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
             Medium medium = (Medium) service.rechercherMediumParNom(request.getParameter("medium"));
-            request.setAttribute("consultation", service.ajouterConsultation(client, medium));
+            Consultation consultation = service.ajouterConsultation(client, medium);
+            request.setAttribute("consultation", consultation);
         }
         else{
                 System.out.println("Probleme session");

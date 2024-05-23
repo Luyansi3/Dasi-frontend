@@ -51,7 +51,7 @@ public class ListeMediumSerialisation extends Serialisation{
                 mediumArray.add(medium);
             }
             
-            container.add("medium", mediumArray);
+            container.add("mediums", mediumArray);
         }
         
         response.setContentType("application/json;charset=UTF-8");

@@ -1,8 +1,20 @@
 
-var attConfirmation = false;
+
 let htmlBouton;
 let htmlMedium;
 let htmlConsult;
+
+
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    
+    
+    const [key, value] = queryString.split("=");
+    params[key] = decodeURIComponent(value);
+    
+    return params;
+}
 
 
 $(document).ready(function () {
@@ -81,10 +93,8 @@ $(document).ready(function () {
                     window.location.href = "./login.html";
                     });
             });
-        
 
-        
-        if (attConfirmation)
+        if (getQueryParams().attConfirmation === "true")
         {
         htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Votre consultation est en attente de confirmation !</div>';
                 $('#consultation').html(htmlConsult);

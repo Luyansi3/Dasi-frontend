@@ -288,7 +288,6 @@ public class Service {
             if (employe != null){ // Si il y a un employe libre pour cette consultation
                 try {
                     JpaUtil.ouvrirTransaction();
-
                     // potentiellement à changer (format)
                     Date date = new Date();
 
