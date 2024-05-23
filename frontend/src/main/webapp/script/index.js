@@ -32,7 +32,7 @@ $(document).ready(function () {
             console.log('Response', response); // LOG dans Console Javascript
             if (response.connecte) //le client est connecté 
             {
-            htmlBouton = '<button id="bouton-historique" class ="bouton-div-haut-droite">Voir historique</button> <button id="bouton-profil-astal" class ="bouton-div-haut-droite">Profil astral</button> <button id="bouton-deconnexion" class ="bouton-div-haut-droite" >Log out</button>';
+            htmlBouton = '<button id="bouton-historique" class ="bouton-div-haut-droite">Voir historique</button> <button id="bouton-profil-astal" >Profil astral</button> <button id="bouton-deconnexion" >Log out</button>';
             } else
             {
                 htmlBouton = '<button id="bouton-connexion" class ="bouton-div-haut-droite">Connexion</button>';
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
                     console.log("clic sur le bouton de profil astral"); // LOG dans Console Javascript
                     $('#notification').html("Profil astral..."); // Message pour le paragraphe de notification
-                    //window.location.href = "./profilAstral.html"; 
+                    window.location.href = "./profilAstral.html"; 
                     });
                 
                 $('#bouton-historique').on('click', function () { // Fonction appelée lors du clic sur le bouton

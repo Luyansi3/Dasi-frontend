@@ -62,7 +62,7 @@ $( document ).ready(function() {
             statutConnexion = response.connecte;
             if (statutConnexion) //le client est connecté 
             {
-                htmlBouton = '<button id="bouton-historique" class ="bouton-div-haut-droite">Voir historique</button> <button id="bouton-profil-astal" class ="bouton-div-haut-droite">Profil astral</button> <button id="bouton-deconnexion"class ="bouton-div-haut-droite">Log out</button> '; 
+                htmlBouton = '<button id="bouton-historique">Voir historique</button> <button id="bouton-profil-astal">Profil astral</button> <button id="bouton-deconnexion">Log out</button> '; 
                
             }
             else 
