@@ -5,8 +5,9 @@ let htmlConsulation;
 $( document ).ready(function() {
     if (statutConsultation) //demande de consultation
     {
+        console.log('consultation');
         htmlConsultation = '<p> DEMANDE DE CONSULTATION </p>'; 
-        $('#consultation').html(htmlConsulation);
+        $('#consultation').html(htmlConsultation);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +15,7 @@ $( document ).ready(function() {
     $('#bouton-deconnexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton de deconnexion"); // LOG dans Console Javascript
         $('#notification').html("Deconnexion..."); // Message pour le paragraphe de notification
-        window.location.href = "./index.html"; 
+        //window.location.href = "./index.html"; 
     });
 
     $('#bouton-commentaires').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
