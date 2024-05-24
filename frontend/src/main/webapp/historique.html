@@ -1,0 +1,37 @@
+<!-- il ne manque plus à ajouter les href des pages aux boutons d'en haut à droite-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Historique</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- on utilise jquery -->
+        <link href="style/style.css" rel="stylesheet">
+        <script src="./script/historique.js"></script>
+    </head>
+    <body>
+        <div class = "boutons-haut-droite"> 
+            <button id="bouton-liste-medium">Voir liste médium</button> 
+            <button id="bouton-profil-astal" >Profil Astral</button> 
+            <button id="bouton-accueil">Accueil</button> 
+            <button id="bouton-deconnexion">Log out</button>
+        </div>
+        <h1>Historique</h1>
+        <br/>
+        <p>Votre destin vous attend</p>
+        <p>Plongez vous dans le destin ....</p>
+
+        <!-- place pour l'alertbox : -->
+        <div id="historique">
+            <!-- <div class="alert" > <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> Votre consultation est en attente de confirmation !</div> -->
+        </div>
+
+        <div style="overflow : scroll ; border: #000000 1px solid; width: 150px; height: 300px;">
+            <!-- code à généré avec javascript-->
+            <table style="width: 150px;">
+                <tbody id="tabHistorique"> </tbody>
+            </table>
+            </div> 
+    </body>
+</html>

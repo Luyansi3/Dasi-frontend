@@ -32,7 +32,6 @@ public class VerificationConnexionAction extends Action {
         
       if(session != null){
           
-          System.out.println(session.getAttribute("id"));
           if(session.getAttribute("type").equals("Client")){
               Client client = service.rechercherClientParId((Long) session.getAttribute("id"));
               request.setAttribute("connecte", true);

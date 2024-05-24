@@ -14,6 +14,9 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.Astrologue;
+import modele.Cartomancien;
+import modele.Spirit;
 import modele.Medium;
 import service.Service;
 
@@ -47,7 +50,35 @@ public class ListeMediumSerialisation extends Serialisation{
                 medium.addProperty("denomination", mediums.get(i).getDenomination());
                 medium.addProperty("genre", mediums.get(i).getGenre());
                 medium.addProperty("presentation", mediums.get(i).getPresentation());
-                medium.addProperty("nbConsultation", mediums.get(i).getNombreConsultations());                
+                medium.addProperty("nbConsultation", mediums.get(i).getNombreConsultations());
+                medium.addProperty("typeMedium", mediums.get(i).getClass().getName().split("\\.")[1]);
+                
+                
+                if(mediums.get(i) instanceof Spirit){
+                    Spirit spirit = (Spirit) mediums.get(i);
+                    medium.addProperty("nbSupport", spirit.getSupport().size());
+                    JsonArray supports = new JsonArray();
+
+                    for(int j=0; j<spirit.getSupport().size(); j++){
+                        JsonObject support = new JsonObject();
+                        
+                        support.addProperty("Support " + (j+1), spirit.getSupport().get(j));
+                        
+                        supports.add(support);
+                        
+                    }
+                    
+                    
+                    medium.add("supports",  supports);
+                }
+                
+                else if (mediums.get(i) instanceof Astrologue){
+                    Astrologue astrologue = (Astrologue) mediums.get(i);
+                    
+                    medium.addProperty("formation", astrologue.getFormation());
+                    medium.addProperty("promotion", astrologue.getPromotion());
+                }
+
                 mediumArray.add(medium);
             }
             

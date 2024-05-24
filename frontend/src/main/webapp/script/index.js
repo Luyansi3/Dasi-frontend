@@ -83,7 +83,7 @@ $(document).ready(function () {
 
                     console.log("clic sur le bouton de l'historique"); // LOG dans Console Javascript
                     $('#notification').html("Historique..."); // Message pour le paragraphe de notification
-                    //window.location.href = "./historique.html"; 
+                    window.location.href = "./historique.html"; 
                     });
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 //réactions aux boutons Deonnecté:
