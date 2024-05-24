@@ -44,10 +44,6 @@ $( document ).ready(function() {
             sgnZodiaque = response.signeZodiaque;
             couleurPref = response.couleur;
             sgnChinois = response.signeChinois;
-    
-        
-
-
 
 
 
