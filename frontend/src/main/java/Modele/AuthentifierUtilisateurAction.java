@@ -32,6 +32,7 @@ public class AuthentifierUtilisateurAction extends Action {
             request.setAttribute("type", "Client");
             HttpSession session = request.getSession(true);
             session.setAttribute("id", client.getId());
+            session.setAttribute("type", "Client");
 
             
         }
@@ -39,7 +40,8 @@ public class AuthentifierUtilisateurAction extends Action {
             request.setAttribute("user", (Employe) employe);
             request.setAttribute("type", "Employe");
             HttpSession session = request.getSession(true);
-            session.setAttribute("id", employe);
+            session.setAttribute("id", employe.getId());
+            session.setAttribute("type", "Employe");
 
         }
         else{

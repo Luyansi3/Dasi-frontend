@@ -8,6 +8,7 @@ package Modele;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modele.Client;
+import modele.Employe;
 import service.Service;
 
 /**
@@ -27,8 +28,28 @@ public class VerificationConnexionAction extends Action {
         
         HttpSession session = request.getSession(false);
         
-        request.setAttribute("connecte", session);
         
+        
+      if(session != null){
+          
+          System.out.println(session.getAttribute("id"));
+          if(session.getAttribute("type").equals("Client")){
+              Client client = service.rechercherClientParId((Long) session.getAttribute("id"));
+              request.setAttribute("connecte", true);
+              request.setAttribute("type", "client");
+              request.setAttribute("user", client);
+          }
+          else{
+              Employe employe = service.rechercherEmployeParId((Long) session.getAttribute("id"));
+              request.setAttribute("connecte", true);
+              request.setAttribute("type", "employe");
+              request.setAttribute("user", employe);
+          }
+          
+      }
+      else{
+          request.setAttribute("connecte", false);
+      }
         
         
     }

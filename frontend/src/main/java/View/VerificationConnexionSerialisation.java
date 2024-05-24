@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.Client;
+import modele.Employe;
 import service.Service;
 
 /**
@@ -29,9 +31,43 @@ public class VerificationConnexionSerialisation extends Serialisation {
         
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         JsonObject container = new JsonObject();
+        JsonObject user = new JsonObject();
+        
+        
        
-        if(request.getAttribute("connecte") != null ){
+        if((boolean) request.getAttribute("connecte")){
             container.addProperty("connecte", true);
+            if(request.getAttribute("type").equals("client")){
+                Client client = (Client) request.getAttribute("user");
+                
+                user.addProperty("type", (String) "Client");
+                user.addProperty("id", (Long) client.getId());
+                user.addProperty("nom", (String) client.getNom());
+                user.addProperty("prenom", (String) client.getPrenom());
+                user.addProperty("mail", (String) client.getMail());
+                user.addProperty("tel", (String) client.getTel());
+                user.addProperty("adresse", (String) client.getAdressePostale());
+                user.addProperty("consultation", (Boolean) client.getEnConsultation());
+                user.addProperty("genre", (String) client.getGenre());
+                
+                container.add("utilisateur", user);
+                
+            }
+            else{
+                Employe employe = (Employe) request.getAttribute("user");
+                
+                user.addProperty("type", "Employe");
+                user.addProperty("id", (Long) employe.getId());
+                user.addProperty("nom", (String) employe.getNom());
+                user.addProperty("prenom", (String) employe.getPrenom());
+                user.addProperty("mail", (String) employe.getMail());
+                user.addProperty("tel", (String) employe.getTel());
+                user.addProperty("adresse", (String) employe.getAdressePostale());
+                user.addProperty("disponibilite", (Boolean) employe.getDisponibilite());
+                user.addProperty("nbConsultation", (int) employe.getNombreConsultations());
+                
+                container.add("utilisateur", user);
+            }
         }
         else{
             container.addProperty("connecte", false);

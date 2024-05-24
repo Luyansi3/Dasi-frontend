@@ -114,7 +114,7 @@ $( document ).ready(function() {
 
             console.log("clic sur le bouton de profil astral"); // LOG dans Console Javascript
             $('#notification').html("Profil astral..."); // Message pour le paragraphe de notification
-            //window.location.href = "./profilAstral.html"; 
+            window.location.href = "./profilAstral.html"; 
         });
 
         $('#bouton-historique').on( 'click', function () { // Fonction appelée lors du clic sur le bouton

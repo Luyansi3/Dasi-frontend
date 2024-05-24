@@ -108,11 +108,17 @@ public class Main {
                 System.out.println("25: Chercher un médium par un faux nom");
                 
                 
+                System.out.println("test recherche : ");
+                
+
+                
                 System.out.println("\n30: Arrêter demo :\n");
 
                 choix = Saisie.lireChaine("Veuillez choisir : ");
                 System.out.println("");
                 
+               
+               
                 switch(choix){
 
                     case "1": // Création d'un client

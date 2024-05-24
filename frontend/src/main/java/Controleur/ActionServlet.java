@@ -11,11 +11,13 @@ import Modele.AuthentifierUtilisateurAction;
 import Modele.DeconnexionAction;
 import Modele.InscriptionUtilisateurAction;
 import Modele.ListeMediumAction;
+import Modele.ProfilAstralAction;
 import Modele.VerificationConnexionAction;
 import View.AjouterConsultationSerialisation;
 import View.DeconnexionSerialisation;
 import View.InscriptionUtilisateurSerialisation;
 import View.ListeMediumSerialisation;
+import View.ProfilAstralSerialisation;
 import View.ProfilUtilisateurSerialisation;
 import View.VerificationConnexionSerialisation;
 import dao.JpaUtil;
@@ -93,6 +95,13 @@ public class ActionServlet extends HttpServlet {
             case "deconnexion":{
                 new DeconnexionAction(service).executer(request);
                 new DeconnexionSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            
+            case "voir-profil-astral":{
+                new ProfilAstralAction(service).executer(request);
+                new ProfilAstralSerialisation(service).appliquer(request, response);
                 break;
                 
             }
