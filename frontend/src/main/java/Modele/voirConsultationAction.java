@@ -8,6 +8,7 @@ package Modele;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modele.Client;
+import modele.Consultation;
 import service.Service;
 
 
@@ -15,16 +16,16 @@ import service.Service;
  *
  * @author lsanchez
  */
-public class voirConsultationAction extends Action {
+public class VoirConsultationAction extends Action {
 
-    public voirConsultationAction(Service service) {
+    public VoirConsultationAction(Service service) {
         super(service);
     }
 
     
     @Override
     public void executer(HttpServletRequest request) {
-        System.out.println("Profil Astral Action");
+        System.out.println("Voir Consultation Action");
         
         HttpSession session = request.getSession(false);
         
@@ -35,6 +36,13 @@ public class voirConsultationAction extends Action {
                 
                 request.setAttribute("consultations", client.getConsultations());
                 
+            }
+            else if(session.getAttribute("type").equals("Employe")){
+                
+                Consultation consultation = service.rechercherConsultationEnCoursEmploye((Long) session.getAttribute("id"));
+                Client client = (Client) service.rechercherClientParId((Long) consultation.getClient().getId());
+                
+                request.setAttribute("consultations", client.getConsultations());
             }
         }
         else{

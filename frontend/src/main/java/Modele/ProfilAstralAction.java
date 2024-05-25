@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import service.Service;
 import modele.Client;
+import modele.Consultation;
 
 /**
  *
@@ -32,6 +33,13 @@ public class ProfilAstralAction extends Action {
                 Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
                 request.setAttribute("profilAstral", client.getProfilAstral());
                 
+            }
+            else if(session.getAttribute("type").equals("Employe")){
+                
+                Consultation consultation = service.rechercherConsultationEnCoursEmploye((Long) session.getAttribute("id"));
+                Client client = (Client) service.rechercherClientParId((Long) consultation.getClient().getId());
+                
+                request.setAttribute("profilAstral", client.getProfilAstral());
             }
         }
         else{

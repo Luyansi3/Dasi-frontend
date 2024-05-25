@@ -9,17 +9,24 @@ package Controleur;
 import Modele.AjouterConsultationAction;
 import Modele.AuthentifierUtilisateurAction;
 import Modele.DeconnexionAction;
+import Modele.EmployePret;
 import Modele.InscriptionUtilisateurAction;
 import Modele.ListeMediumAction;
 import Modele.ProfilAstralAction;
+import Modele.RechercheConsultationAction;
 import Modele.VerificationConnexionAction;
+import Modele.VoirConsultationAction;
+import Modele.VoirStatistiqueAction;
 import View.AjouterConsultationSerialisation;
 import View.DeconnexionSerialisation;
 import View.InscriptionUtilisateurSerialisation;
 import View.ListeMediumSerialisation;
 import View.ProfilAstralSerialisation;
 import View.ProfilUtilisateurSerialisation;
+import View.RechercheConsultationSerialisation;
 import View.VerificationConnexionSerialisation;
+import View.VoirStatistiqueSerialisation;
+import View.VoirConsultationSerialisation;
 import dao.JpaUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -102,6 +109,29 @@ public class ActionServlet extends HttpServlet {
             case "voir-profil-astral":{
                 new ProfilAstralAction(service).executer(request);
                 new ProfilAstralSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "voir-consultation":{
+                new VoirConsultationAction(service).executer(request);
+                new VoirConsultationSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "recherche-consultation":{
+                new RechercheConsultationAction(service).executer(request);
+                new RechercheConsultationSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "voir-statistique":{
+                new VoirStatistiqueAction(service).executer(request);
+                new VoirStatistiqueSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "pret":{
+                new EmployePret(service).executer(request);
                 break;
                 
             }

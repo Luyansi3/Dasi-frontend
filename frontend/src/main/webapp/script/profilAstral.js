@@ -55,7 +55,7 @@ $( document ).ready(function() {
             $('#couleur-pref').html(couleurPref); 
             $('#sgn-chinois').html(sgnChinois); 
             
-        })
+        });
 
         
         

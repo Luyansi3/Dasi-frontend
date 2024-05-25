@@ -24,14 +24,14 @@ import modele.Cartomancien;
  *
  * @author lsanchez
  */
-public class voirConsultationSerialisation extends Serialisation {
+public class VoirConsultationSerialisation extends Serialisation {
 
-    public voirConsultationSerialisation(Service service) {
+    public VoirConsultationSerialisation(Service service) {
         super(service);
     }
     @Override
     public void appliquer(HttpServletRequest request, HttpServletResponse response)  throws IOException {
-        System.out.println("Profil Astral Serialisation");
+        System.out.println("Voir Consultation Serialisation");
         
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         JsonObject container = new JsonObject();

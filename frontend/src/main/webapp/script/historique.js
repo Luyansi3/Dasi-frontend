@@ -3,7 +3,7 @@ let htmlBouton;
 let htmlMedium; 
 let statutPossibleConsultation = false;
 let htmlConsult; 
-var statutConnexion;
+
 
     
 
@@ -85,7 +85,7 @@ $( document ).ready(function() {
             url: './ActionServlet',
             method: 'POST',
             data: {
-                todo: 'voirMedium'
+                todo: 'voir-consultation'
 
             },
             dataType: 'json'
@@ -93,41 +93,30 @@ $( document ).ready(function() {
         .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
             console.log('Response',response); // LOG dans Console Javascript
             
-            if (statutConnexion) //le client est connecté 
-            {
-                
-                htmlMedium = '';
-                for(let key in response.mediums){
-
-                    htmlMedium += '<tr><th>' + response.mediums[key].denomination + '<button id="' + response.mediums[key].denomination + '"> Selectionner </button> </th></tr>';
-
-                }
-                $('#tabMedium').html(htmlMedium);
-                for(let key in response.mediums){
-                    
-                    bouton = document.getElementById(response.mediums[key].denomination);
-                    bouton.addEventListener('click', selectionMedium);
-                }
-                    
-            }
-            else 
-            {
-                htmlMedium = '<tr><th> un nom </th></tr> <tr><th> un autre nom </th></tr>'; 
-                $('#tabMedium').html(htmlMedium);
-            }
-             
             
+            if(response.nbConsultation){
+
+                for(let key in response.consultations){
+                    var consultation = response.consultations[key];
+                    htmlMedium = '<tr><th>' + 'Le ' + consultation.date  + '<p> Medium selectionne : ' + consultation.nomMedium +
+                                                                          '<br> Type : ' + consultation.typeMedium + 
+                                                                          '<br>Genre : ' + (consultation.genreMedium ? "Femme" : "Homme")
+                                                                          + '</p></th></tr>';
+
+                }
+                $('#tabHistorique').html(htmlMedium);
+            }
+            else{
+                 htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Aucune consultation effectuée </div>';
+                 $('#historique').html(htmlConsult);
+            }
         })
         .fail( function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
             console.log('Error',error); // LOG dans Console Javascript
             alert("Erreur lors de l'appel AJAX");
         })
         .always( function () { // Fonction toujours appelée
-            
-            
-
-
-        });
+           });
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //réactions aux boutons
