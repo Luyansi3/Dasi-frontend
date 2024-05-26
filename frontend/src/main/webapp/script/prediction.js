@@ -1,25 +1,77 @@
 $(document).ready(function() {
-    $('.star').on('click', function() {
-        let rating = $(this).data('value');
-        $('#rating').text(rating);
-        $('.star').removeClass('selected');
-        $(this).addClass('selected');
-        $(this).prevAll().addClass('selected');
-    });
+    $('.stars').each(function() {
+        let $starsContainer = $(this);
+        let $stars = $starsContainer.find('.star');
 
-    $('.star').on('mouseover', function() {
-        $('.star').css('color', '#ccc');
-        $(this).css('color', 'gold');
-        $(this).prevAll().css('color', 'gold');
-    });
+        $stars.on('click', function() {
+            let rating = $(this).data('value');
+            $stars.removeClass('selected');
+            $(this).addClass('selected');
+            $(this).prevAll().addClass('selected');
 
-    $('.star').on('mouseout', function() {
-        $('.star').each(function() {
-            if (!$(this).hasClass('selected')) {
-                $(this).css('color', '#ccc');
-            } else {
-                $(this).css('color', 'gold');
-            }
+            // Stocke la note dans un attribut de la div conteneur
+            $starsContainer.attr('data-rating', rating);
+        });
+
+        $stars.on('mouseover', function() {
+            $stars.css('color', '#ccc');
+            $(this).css('color', 'gold');
+            $(this).prevAll().css('color', 'gold');
+        });
+
+        $stars.on('mouseout', function() {
+            $stars.each(function() {
+                if (!$(this).hasClass('selected')) {
+                    $(this).css('color', '#ccc');
+                } else {
+                    $(this).css('color', 'gold');
+                }
+            });
         });
     });
+
+    $('#bouton-prediction').on('click', function() {
+        let ratingAmour = $('#starAmour').attr('data-rating') || 0;
+        let ratingSante = $('#starSante').attr('data-rating') || 0;
+        let ratingCarriere = $('#starCarriere').attr('data-rating') || 0;
+        //à changer !!
+        console.log('Note pour Amour : ' + ratingAmour + ' étoiles, Note pour Santé : ' + ratingSante + ' étoiles ' + ratingCarriere + 'étoiles');
+    });
+
+
+    $('#bouton-consultationEnCours').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+        console.log("clic sur le bouton de consulatation"); // LOG dans Console Javascript
+        $('#notification').html("Accès à consulatation en cours..."); // Message pour le paragraphe de notification
+        window.location.href = "./consultationEnCoursEmp.html"; 
+    });
+
+
+    $('#bouton-deconnexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+
+        console.log("clic sur le bouton de deconnexion"); // LOG dans Console Javascript
+        $('#notification').html("Deconnexion..."); // Message pour le paragraphe de notification
+
+
+        $.ajax({
+            url: './ActionServlet',
+                method: 'POST',
+                data: {
+                todo: 'deconnexion'
+
+                },
+                dataType: 'json'
+        })
+        .done(function (response) { // Fonction appelée en cas d'appel AJAX réussi
+            window.location.href = "./index.html";
+            })
+        .fail(function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
+            console.log('Error', error); // LOG dans Console Javascript
+            alert("Erreur lors de l'appel AJAX");
+        })
+        .always(function () {
+    });
+
+
+    });
+
 });

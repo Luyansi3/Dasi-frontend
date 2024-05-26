@@ -9,8 +9,31 @@
         <script src="./script/prediction.js"></script>
     </head>
 <body>
+    <div class = "boutons-haut-droite"> 
+        <button id="bouton-consultationEnCours" > Consultation en cours </button>
+        <button id="bouton-deconnexion">Log out</button>
+    </div>
     <h1> Echelle du bonheur </h1>
-        <div class="stars">
+    amour : 
+        <div class="stars" id = "starAmour">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <br>
+    santé : 
+        <div class="stars" id = "starSante">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <br>
+    carrière : 
+        <div class="stars" id = "starCarriere">
             <span class="star" data-value="1">&#9733;</span>
             <span class="star" data-value="2">&#9733;</span>
             <span class="star" data-value="3">&#9733;</span>
@@ -19,6 +42,7 @@
         </div>
         <p class="rating-value">Note: <span id="rating">0</span> étoiles</p>
 
+            <button id="bouton-prediction"> Obtenir une prédiction </button>
 
 </body>
 </html>
