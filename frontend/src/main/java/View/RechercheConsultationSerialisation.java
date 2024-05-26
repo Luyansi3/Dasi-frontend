@@ -27,7 +27,7 @@ public class RechercheConsultationSerialisation extends Serialisation {
     }
     @Override
     public void appliquer(HttpServletRequest request, HttpServletResponse response)  throws IOException {
-        System.out.println("Profil Astral Serialisation");
+        System.out.println("Recherche Consultation Serialisation");
         
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         JsonObject container = new JsonObject();
