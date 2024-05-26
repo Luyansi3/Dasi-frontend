@@ -27,6 +27,11 @@ button:hover {
   background-color: #ECD2FB;
 }
 
+table, caption, th, td {
+  border: 2px solid #E4BAFC
+  }
+  
+
 
 .boutons-haut-droite {
   display: flex;
@@ -69,9 +74,25 @@ button:hover {
   /* end alert message box*/ 
 
 
-table, caption, th, td {
-border: 2px solid #E4BAFC
+.stars {
+    display: inline-block;
 }
+
+.star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: gold;
+}
+
+.star.selected {
+    color: gold;
+}
+
 
 
 

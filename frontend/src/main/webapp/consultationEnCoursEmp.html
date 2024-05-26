@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Connecté - Consultation</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+        <link href="style/style.css" rel="stylesheet">
+        <script src = './script/consultationEnCoursEmp.js'> </script>
+    </head>
+    <body>
+        <div class = "boutons-haut-droite"> 
+             <button id="bouton-prediction" > Prediction </button>
+            <button id="bouton-deconnexion">Log out</button>
+        </div>
+        <h1>Client :  <span id = 'client'> </span> </h1>
+
+        <button id="bouton-finConsultation">fin consultation</button>
+        <button id="bouton-profilAstral">profil Astral et historique</button>
+        <br>
+        <input type="text" id="champ-commentaire" value="Ca va pas bien dans ta tête Lucas" />
+        <br> 
+
+        <button id="bouton-validerCom">Valider le commentaire</button>
+    </body>
+</html>
