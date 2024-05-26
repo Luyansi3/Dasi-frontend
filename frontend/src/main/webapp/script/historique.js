@@ -1,6 +1,6 @@
 
 let htmlBouton; 
-let htmlMedium; 
+let htmlMedium = ''; 
 let statutPossibleConsultation = false;
 let htmlConsult; 
 
@@ -95,16 +95,18 @@ $( document ).ready(function() {
             
             
             if(response.nbConsultation){
-
+                
                 for(let key in response.consultations){
+                   
                     var consultation = response.consultations[key];
-                    htmlMedium = '<tr><th>' + 'Le ' + consultation.date  + '<p> Medium selectionne : ' + consultation.nomMedium +
+                    htmlMedium += ('<tr><th>' + 'Le ' + consultation.date  + '<p> Medium selectionne : ' + consultation.nomMedium +
                                                                           '<br> Type : ' + consultation.typeMedium + 
                                                                           '<br>Genre : ' + (consultation.genreMedium ? "Femme" : "Homme")
-                                                                          + '</p></th></tr>';
-
+                                                                          + '<br>Commentaire : ' + consultation.commentaire 
+                                                                          +'</p></th></tr>');
+                                                                
                 }
-                $('#tabHistorique').html(htmlMedium);
+                 $('#tabHistorique').html(htmlMedium); 
             }
             else{
                  htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Aucune consultation effectuée </div>';

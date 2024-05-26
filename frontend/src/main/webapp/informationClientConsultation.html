@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Connecté - Consultation</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+        <link href="style/style.css" rel="stylesheet">
+        <script src = './script/informationClientConsultation.js'> </script>
+    </head>
+    <body>
+        <div class = "boutons-haut-droite"> 
+             <button id="bouton-consultationEnCours" > Consultation en cours </button>
+            <button id="bouton-prediction" > Prédictions </button>
+            <button id="bouton-deconnexion">Log out</button>
+        </div>
+        <h1>Client :  <span id = 'client'> </span> </h1>
+        <h2>Anciennes consultations</h2>
+        <div id="historique">
+        </div>
+
+        <div style="overflow : scroll ; border: #000000 1px solid; width: 300px; height: 300px;">
+            <!-- code à généré avec javascript-->
+            <table style="width: 300px;">
+                <tbody id="tabHistorique"> </tbody>
+            </table>
+        </div> 
+        <p>Votre animal toteme est <span id = 'animal-totem'> </span> </p>
+        <p>Votre signe du zodiaque est <span id = 'sgn-zodiaque'></span> </p>
+        <p>Votre coleur préférée est <span id = 'couleur-pref'></span> </p>
+        <p>Votre signe chinois est <span id = 'sgn-chinois'></span> </p>
+
+       
+    </body>
+</html>

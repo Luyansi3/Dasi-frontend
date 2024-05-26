@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     $('.stars').each(function() {
         let $starsContainer = $(this);
         let $stars = $starsContainer.find('.star');
@@ -36,6 +37,39 @@ $(document).ready(function() {
         let ratingCarriere = $('#starCarriere').attr('data-rating') || 0;
         //à changer !!
         console.log('Note pour Amour : ' + ratingAmour + ' étoiles, Note pour Santé : ' + ratingSante + ' étoiles ' + ratingCarriere + 'étoiles');
+        
+        $.ajax({
+            url: './ActionServlet',
+                method: 'POST',
+                data: {
+                    todo: 'voir-prediction',
+                    noteAmour: ratingAmour,
+                    noteSante: ratingSante,
+                    noteCarriere: ratingCarriere
+                
+                },
+                dataType: 'json'
+        })
+        .done(function (response) { // Fonction appelée en cas d'appel AJAX réussi
+            console.log(response);
+            let htmlPredictions = '<h2>Prédictions : </h2>';
+            
+            htmlPredictions += '<p>Prédiction Amour :<span>'+ response.predictionAmour + '</span></p>';
+            htmlPredictions += '<p>Prédiction Santé :<span>'+ response.predictionSante + '</span></p>';
+            htmlPredictions += '<p>Prédiction Carrière :<span>'+ response.predictionCarriere + '</span></p>';
+            
+            $('#prediction').html(htmlPredictions);
+            
+            
+           
+            })
+        .fail(function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
+            console.log('Error', error); // LOG dans Console Javascript
+            alert("Erreur lors de l'appel AJAX");
+        })
+        .always(function () {
+        });
+        
     });
 
 

@@ -31,14 +31,14 @@ public class VoirConsultationAction extends Action {
         
         if(session != null){
             if(session.getAttribute("type").equals("Client")){
-                
+                System.out.println("Session client");
                 Client client = (Client) service.rechercherClientParId((Long) session.getAttribute("id"));
                 
                 request.setAttribute("consultations", client.getConsultations());
                 
             }
             else if(session.getAttribute("type").equals("Employe")){
-                
+                System.out.println("Session employe");
                 Consultation consultation = service.rechercherConsultationEnCoursEmploye((Long) session.getAttribute("id"));
                 Client client = (Client) service.rechercherClientParId((Long) consultation.getClient().getId());
                 

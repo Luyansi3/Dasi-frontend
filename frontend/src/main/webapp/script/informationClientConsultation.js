@@ -145,36 +145,16 @@ $( document ).ready(function() {
 
     });
 
-    $('#bouton-commentaires').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+    $('#bouton-consultationEnCours').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton de commentaires"); // LOG dans Console Javascript
         $('#notification').html("Accès aux commentaires..."); // Message pour le paragraphe de notification
-        //window.location.href = "./commentaires.html"; 
+        window.location.href = "./consultationEnCoursEmp.html"; 
     });
-    $('#bouton-accueil').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
+    $('#bouton-prediction').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton de commentaires"); // LOG dans Console Javascript
         $('#notification').html("Accès aux commentaires..."); // Message pour le paragraphe de notification
-        window.location.href = "./accueilEmployeConnecte.html"; 
+        window.location.href = "./prediction.html"; 
     });
     
-    $('#bouton-pret').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
-        console.log("clic sur le bouton pret"); // LOG dans Console Javascript
-        $('#notification').html("Accès aux commentaires..."); // Message pour le paragraphe de notification
-        $.ajax({
-            url: './ActionServlet',
-            method: 'POST',
-            data: {
-                todo: 'pret'
-
-            },
-            dataType: 'json'
-        })
-        .always(function () {
-            console.log("Message envoyé");
-            window.location.href = "./consultationEnCoursEmp.html";
-        });
-        
-       
-       
-         
-    });
+    
 }); 

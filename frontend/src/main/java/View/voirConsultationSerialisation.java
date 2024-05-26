@@ -46,17 +46,18 @@ public class VoirConsultationSerialisation extends Serialisation {
             container.addProperty("nbConsultation", consultations.size());
 
             for(int i = 0; i<consultations.size(); i++){
+                if(consultations.get(i).getValidation()){
+                    JsonObject consultationJson = new JsonObject();
 
-                JsonObject consultationJson = new JsonObject();
-
-                consultationJson.addProperty("commentaire", consultations.get(i).getCommentaire());
-                consultationJson.addProperty("date", dateFormat.format(consultations.get(i).getDate()));
-                consultationJson.addProperty("nomMedium", consultations.get(i).getMedium().getDenomination());
-                consultationJson.addProperty("genreMedium", consultations.get(i).getMedium().getGenre());
-                consultationJson.addProperty("typeMedium", consultations.get(i).getMedium().getClass().getName().split("\\.")[1]);
+                    consultationJson.addProperty("commentaire", consultations.get(i).getCommentaire());
+                    consultationJson.addProperty("date", dateFormat.format(consultations.get(i).getDate()));
+                    consultationJson.addProperty("nomMedium", consultations.get(i).getMedium().getDenomination());
+                    consultationJson.addProperty("genreMedium", consultations.get(i).getMedium().getGenre());
+                    consultationJson.addProperty("typeMedium", consultations.get(i).getMedium().getClass().getName().split("\\.")[1]);
 
 
-                consultationsJson.add(consultationJson);    
+                    consultationsJson.add(consultationJson);    
+                }
             }
 
             container.add("consultations", consultationsJson);

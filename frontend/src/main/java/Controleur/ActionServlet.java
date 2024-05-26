@@ -10,23 +10,29 @@ import Modele.AjouterConsultationAction;
 import Modele.AuthentifierUtilisateurAction;
 import Modele.DeconnexionAction;
 import Modele.EmployePret;
+import Modele.FinConsultationAction;
 import Modele.InscriptionUtilisateurAction;
 import Modele.ListeMediumAction;
 import Modele.ProfilAstralAction;
 import Modele.RechercheConsultationAction;
+import Modele.ValiderCommentaireAction;
 import Modele.VerificationConnexionAction;
 import Modele.VoirConsultationAction;
+import Modele.VoirPredictionAction;
 import Modele.VoirStatistiqueAction;
 import View.AjouterConsultationSerialisation;
 import View.DeconnexionSerialisation;
+import View.FinConsultationSerialisation;
 import View.InscriptionUtilisateurSerialisation;
 import View.ListeMediumSerialisation;
 import View.ProfilAstralSerialisation;
 import View.ProfilUtilisateurSerialisation;
 import View.RechercheConsultationSerialisation;
+import View.ValiderCommentaireSerialisation;
 import View.VerificationConnexionSerialisation;
 import View.VoirStatistiqueSerialisation;
 import View.VoirConsultationSerialisation;
+import View.VoirPredictionSerialisation;
 import dao.JpaUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -132,6 +138,24 @@ public class ActionServlet extends HttpServlet {
             }
             case "pret":{
                 new EmployePret(service).executer(request);
+                break;
+                
+            }
+            case "valider-commentaire":{
+                new ValiderCommentaireAction(service).executer(request);
+                new ValiderCommentaireSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "fin-consultation":{
+                new FinConsultationAction(service).executer(request);
+                new FinConsultationSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            case "voir-prediction":{
+                new VoirPredictionAction(service).executer(request);
+                new VoirPredictionSerialisation(service).appliquer(request, response);
                 break;
                 
             }
