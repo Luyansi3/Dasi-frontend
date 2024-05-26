@@ -17,6 +17,7 @@ import Modele.ProfilAstralAction;
 import Modele.RechercheConsultationAction;
 import Modele.ValiderCommentaireAction;
 import Modele.VerificationConnexionAction;
+import Modele.VoirCommentairesAction;
 import Modele.VoirConsultationAction;
 import Modele.VoirPredictionAction;
 import Modele.VoirStatistiqueAction;
@@ -30,6 +31,7 @@ import View.ProfilUtilisateurSerialisation;
 import View.RechercheConsultationSerialisation;
 import View.ValiderCommentaireSerialisation;
 import View.VerificationConnexionSerialisation;
+import View.VoirCommentairesSerialisation;
 import View.VoirStatistiqueSerialisation;
 import View.VoirConsultationSerialisation;
 import View.VoirPredictionSerialisation;
@@ -156,6 +158,13 @@ public class ActionServlet extends HttpServlet {
             case "voir-prediction":{
                 new VoirPredictionAction(service).executer(request);
                 new VoirPredictionSerialisation(service).appliquer(request, response);
+                break;
+                
+            }
+            
+            case "voir-commentaires":{
+                new VoirCommentairesAction(service).executer(request);
+                new VoirCommentairesSerialisation(service).appliquer(request, response);
                 break;
                 
             }
