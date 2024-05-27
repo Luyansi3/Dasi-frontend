@@ -138,32 +138,35 @@ $( document ).ready(function() {
             });
             
             generateMarkers(response, function(paysClients) {
-                console.log(paysClients); // Affiche les pays et le nombre de clients dans chaque pays
                 
                 for(let key in paysClients){
-                    googleMapInstance.data.loadGeoJson('https://raw.githubusercontent.com/johan/world.geo.json/master/countries/'+ key + '.geo.json');
-                    if(paysClients[key] <= 1){
+                    var layer = new google.maps.Data();
+                    
+                    layer.loadGeoJson('https://raw.githubusercontent.com/johan/world.geo.json/master/countries/'+ key + '.geo.json');
 
-                        googleMapInstance.data.setStyle({
+                    
+                    if(paysClients[key] <= 1){
+                        layer.setStyle({
                             fillColor: 'blue', // Couleur de remplissage
                             strokeColor: 'blue', // Couleur des frontières
                             strokeWeight: 1 // Épaisseur des frontières
                         });
                     }
-                    else if(paysClients[key] <= 2){
-                        googleMapInstance.data.setStyle({
+                    else if(paysClients[key] == 2){
+                        layer.setStyle({
                             fillColor: 'red', // Couleur de remplissage
                             strokeColor: 'red', // Couleur des frontières
                             strokeWeight: 2 // Épaisseur des frontières
                         });
                     }
-                    else if(paysClients[key] >= 3){
-                        googleMapInstance.data.setStyle({
+                    else{
+                        layer.setStyle({
                             fillColor: 'green', // Couleur de remplissage
                             strokeColor: 'green', // Couleur des frontières
                             strokeWeight: 2 // Épaisseur des frontières
                         });
                     }
+                    layer.setMap(googleMapInstance);
                 }
                 
                 
