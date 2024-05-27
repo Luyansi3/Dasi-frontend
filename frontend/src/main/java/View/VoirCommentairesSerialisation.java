@@ -34,7 +34,7 @@ public class VoirCommentairesSerialisation extends Serialisation{
         List<String> commentaires = (List<String>) request.getAttribute("commentaires");
         
        JsonArray commentairesArray = new JsonArray();
-        if(commentaires == null){
+        if(commentaires.isEmpty()){
             container.addProperty("Commentaires_trouves", Boolean.FALSE);
         }
         else{

@@ -1,5 +1,7 @@
       let htmlCommentaires; 
-       //Affichage des mediums
+      
+$( document ).ready(function() {
+       //Affichage des commentaires 
         $.ajax({
             url: './ActionServlet',
             method: 'POST',
@@ -12,10 +14,11 @@
         .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
             console.log('Response',response); // LOG dans Console Javascript
             if (response.Commentaires_trouves==true){
+                console.log("bcccppppp commmmm");
                 htmlCommmentaires = "<table align='center'>";
                 for(let key in response.commentaires){
 
-                    htmlCommentaires += '<tr><td>' + key + '</td></tr>';
+                    htmlCommentaires += '<tr><td>' + response.commentaires[key].commentaire + '</td></tr>';
 
                 }
                  htmlCommmentaires += ' </table>';
@@ -24,10 +27,11 @@
             }
             else 
             {
+                console.log("aucun commmmm"); 
                 htmlCommentaires = '<p>Aucun commentaire</p>'; 
                 
             }
-            $('#tabCommentaires').html(htmlCommentaires);
+            $('#commentaires').html(htmlCommentaires);
              
             
         })
@@ -73,10 +77,13 @@
 
 
     });
-
+    
+    
+    
     $('#bouton-accueil').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton d'accueil"); // LOG dans Console Javascript
         $('#notification').html("Accès à l'accueil..."); // Message pour le paragraphe de notification
-        window.location.href = "./accueuilEmployeConnecte.html"; 
+        window.location.href = "./accueilEmployeConnecte.html"; 
     });
+}); 
 
