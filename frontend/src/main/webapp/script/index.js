@@ -109,6 +109,7 @@ $(document).ready(function () {
                 $('#notification').html("Liste des Medium..."); // Message pour le paragraphe de notification
                 window.location.href = "./listeMediumClient.html";
         });
+        
             $.ajax({
             url: './ActionServlet',
                     method: 'POST',
@@ -129,6 +130,41 @@ $(document).ready(function () {
             .always(function () { // Fonction toujours appelée
 
             });
+            
+            $.ajax({
+            url: './ActionServlet',
+            method: 'POST',
+            data: {
+                todo: 'voirMedium'
+
+            },
+            dataType: 'json'
+        })
+        .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
+            console.log('Response',response); // LOG dans Console Javascript
+            
+            
+                let htmlMedium="";
+                for(let key in response.mediums){
+
+                    htmlMedium += "<th>" + response.mediums[key].denomination + '</th>';
+
+                }
+                $('#tabMedium').html(htmlMedium);
+                
+             
+            
+        })
+        .fail( function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
+            console.log('Error',error); // LOG dans Console Javascript
+            alert("Erreur lors de l'appel AJAX");
+        })
+        .always( function () { // Fonction toujours appelée
+        });
+            
+            
+            
+            
         });
                 
 

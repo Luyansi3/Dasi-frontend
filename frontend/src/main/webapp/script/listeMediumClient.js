@@ -178,10 +178,6 @@ $( document ).ready(function() {
             alert("Erreur lors de l'appel AJAX");
         })
         .always( function () { // Fonction toujours appelée
-            
-            
-
-
         });
 
         });
