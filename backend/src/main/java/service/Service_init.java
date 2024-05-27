@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import modele.*;
 
 
@@ -36,13 +37,17 @@ public class Service_init {
             
             BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()));
             String line;
+            Random random = new Random();
             while ((line = reader.readLine()) != null) {
                 String[] elements = line.split(",");
                 dateNaissance = simpleDateFormat.parse(elements[7]);
                 Employe employe = new Employe(elements[0], elements[1], elements[2].equals("true"), elements[3], elements[4], elements[5], elements[6], dateNaissance);
                 
+                employe.setNombreConsultations(random.nextInt(6));
+                
                 employeDAO.create(employe);
             }
+
             reader.close();
             
             JpaUtil.validerTransaction();
@@ -77,7 +82,16 @@ public class Service_init {
         
             Spirit spirite = new Spirit(myList,"Irma",true,"Je suis Irma");
             Spirit spirite2 = new Spirit(myList2,"Serena",true,"Je suis Serena");
-
+            Random random = new Random();
+            astrologue.setNombreConsultations(random.nextInt(6));
+            astrologue2.setNombreConsultations(random.nextInt(6));
+            spirite.setNombreConsultations(random.nextInt(6));
+            spirite2.setNombreConsultations(random.nextInt(6));
+            cartomancien.setNombreConsultations(random.nextInt(6));
+            cartomancien2.setNombreConsultations(random.nextInt(6));
+            
+            
+            
             
             mediumDAO.create(astrologue);
             mediumDAO.create(astrologue2);

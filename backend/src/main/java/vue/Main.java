@@ -72,6 +72,25 @@ public class Main {
             
             Service_init.chargerEmployes();
             Service_init.chargerMediums();
+            try{
+                dateNaissance = simpleDateFormat.parse("10/10/2000");
+            } catch (Exception ex) {
+                System.out.println("\nERREUR !!!!!!!!!!\n");
+            }
+            
+            Client clientDemo1 = new Client("Wirane", "Hamza", "Homme", "hwirane@insa-lyon.fr", "hamza", "0651594749", "Rabat", dateNaissance);
+            Client clientDemo2 = new Client("Romane", "Gouineaud", "Femme", "rgouineaud@insa-lyon.fr", "romane", "0651592749", "Toulouse", dateNaissance);
+            Client clientDemo3 = new Client("Simon", "Perrigault", "Homme", "sperrigault@insa-lyon.fr", "simon", "0651504749", "Rennes", dateNaissance);
+            Client clientDemo4 = new Client("Selim", "BenBouzid", "Homme", "sbenbouzid@insa-lyon.fr", "selim", "0651194749", "Tunis", dateNaissance);
+            Client clientDemo5 = new Client("Mehdi", "Griguer", "Homme", "mgriguer@insa-lyon.fr", "mehdi", "0751194749", "Casablanca", dateNaissance);
+            
+            service.inscrireClient(clientDemo1);
+            service.inscrireClient(clientDemo2);
+            service.inscrireClient(clientDemo3);
+            service.inscrireClient(clientDemo4);
+            service.inscrireClient(clientDemo5);
+            
+            
                 
             System.out.println("\n/!\\ Certains tests doivent être effectué avant d'autres /!\\");
             System.out.println("Pour éviter tout problème executez les tests à la suite (sauf le 3)");
