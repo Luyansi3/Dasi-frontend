@@ -43,10 +43,11 @@ public class VoirConsultationSerialisation extends Serialisation {
         List<Consultation> consultations = (List<Consultation>) request.getAttribute("consultations");
         
         if(consultations != null){
-            container.addProperty("nbConsultation", consultations.size());
+            int compteur=0; 
 
             for(int i = 0; i<consultations.size(); i++){
                 if(consultations.get(i).getValidation()){
+                    compteur +=1; 
                     JsonObject consultationJson = new JsonObject();
 
                     consultationJson.addProperty("commentaire", consultations.get(i).getCommentaire());
@@ -59,7 +60,7 @@ public class VoirConsultationSerialisation extends Serialisation {
                     consultationsJson.add(consultationJson);    
                 }
             }
-
+            container.addProperty("nbConsultation", compteur);
             container.add("consultations", consultationsJson);
         }
         else{

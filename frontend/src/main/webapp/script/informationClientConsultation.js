@@ -3,6 +3,7 @@ let animalTotem = '';
 let sgnZodiaque = ""; 
 let couleurPref = ""; 
 let sgnChinois= ""; 
+let htmlConsultation; 
 
 
 
@@ -57,31 +58,36 @@ $( document ).ready(function() {
         .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
             console.log('Response',response); // LOG dans Console Javascript
             
-            htmlMedium= '';
+            
             if(response.nbConsultation){
-
-                for(let key in response.consultations){
+                htmlConsultation = "<div style='overflow : scroll ; border: #000000 1px solid; width: 300px; height: 300px;'> <table style='width: 300px;'>"; 
+                let keys = Object.keys(response.consultations).reverse();
+                console.log(keys); 
+                for (let key of keys){
+                   
                     var consultation = response.consultations[key];
-                    htmlMedium += '<tr><th>' + 'Le ' + consultation.date  + '<p> Medium selectionne : ' + consultation.nomMedium +
+                    htmlConsultation += ('<tr><th>' + 'Le ' + consultation.date  + '<p> Medium selectionne : ' + consultation.nomMedium +
                                                                           '<br> Type : ' + consultation.typeMedium + 
                                                                           '<br>Genre : ' + (consultation.genreMedium ? "Femme" : "Homme")
                                                                           + '<br>Commentaire : ' + consultation.commentaire 
-                                                                          + '</p></th></tr>';
-
+                                                                          +'</p></th></tr>');
+                                                                
                 }
-                $('#tabHistorique').html(htmlMedium);
+                htmlConsultation+='</table> </div>'; 
             }
             else{
                  htmlConsult = '<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> Aucune consultation effectuée </div>';
                  $('#historique').html(htmlConsult);
+                 htmlConsultation = "<p>Aucune ancienne consultation</p>"; 
             }
+            $('#tabHistorique').html(htmlConsultation);
         })
         .fail( function (error) { // Fonction appelée en cas d'erreur lors de l'appel AJAX
             console.log('Error',error); // LOG dans Console Javascript
             alert("Erreur lors de l'appel AJAX");
         })
         .always( function () { // Fonction toujours appelée
-        });
+           });
         
         
         $.ajax({

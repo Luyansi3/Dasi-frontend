@@ -52,12 +52,13 @@ $(document).ready(function() {
         })
         .done(function (response) { // Fonction appelée en cas d'appel AJAX réussi
             console.log(response);
-            let htmlPredictions = '<h2>Prédictions : </h2>';
+            let htmlPredictions = '<h2>Prédictions : </h2> <table>';
             
-            htmlPredictions += '<p>Prédiction Amour :<span>'+ response.predictionAmour + '</span></p>';
-            htmlPredictions += '<p>Prédiction Santé :<span>'+ response.predictionSante + '</span></p>';
-            htmlPredictions += '<p>Prédiction Carrière :<span>'+ response.predictionCarriere + '</span></p>';
+            htmlPredictions += '<tr><th>Prédiction Amour</th> <th>'+ response.predictionAmour + '</th></tr>';
+            htmlPredictions += '<tr><th>Prédiction Santé </th> <th>'+ response.predictionSante + '</th></tr>';
+            htmlPredictions += '<tr><th>Prédiction Carrière</th> <th>'+ response.predictionCarriere + '</th></tr>';
             
+            htmlPredictions+="</table>"; 
             $('#prediction').html(htmlPredictions);
             
             
