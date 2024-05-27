@@ -167,8 +167,14 @@ $( document ).ready(function() {
             }
             else 
             {
-                htmlMedium = '<tr><th> un nom </th></tr> <tr><th> un autre nom </th></tr>'; 
+                console.log("meddddddi"); 
+                for(let key in response.mediums){
+
+                    htmlMedium += "<tr><th>" + response.mediums[key].denomination + '</th></tr>';
+
+                }
                 $('#tabMedium').html(htmlMedium);
+               
             }
              
             
