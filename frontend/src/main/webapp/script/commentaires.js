@@ -11,11 +11,11 @@
         })
         .done( function (response) { // Fonction appelée en cas d'appel AJAX réussi
             console.log('Response',response); // LOG dans Console Javascript
-            if (response.Commentaires_trouves){
+            if (response.Commentaires_trouves==true){
                 htmlCommmentaires = "<table align='center'>";
                 for(let key in response.commentaires){
 
-                    htmlCommentaires += '<tr><td>' + response.commentaires[key].commentaire + '</td></tr>';
+                    htmlCommentaires += '<tr><td>' + key + '</td></tr>';
 
                 }
                  htmlCommmentaires += ' </table>';
