@@ -95,7 +95,7 @@ $( document ).ready(function() {
             
             
             if(response.nbConsultation){
-                htmlConsultation = "<div style='overflow : scroll ; border: #000000 1px solid; width: 300px; height: 300px;'> <table style='width: 300px;'>"; 
+                htmlConsultation = "<div style='overflow : auto ; border: #000000 1px solid; width: 300px; height: 300px; margin: 0 auto;'> <table style='width: 300px;'>"; 
                 let keys = Object.keys(response.consultations).reverse();
                 for (let key of keys){
                    

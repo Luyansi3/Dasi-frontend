@@ -10,7 +10,7 @@ $(document).ready( function () {
 
     $('#bouton-register').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
         console.log("clic sur le bouton d'inscirption"); // LOG dans Console Javascript
-        $('#notification').html("Insctiption..."); // Message pour le paragraphe de notification
+        $('#notification').html("Inscription..."); // Message pour le paragraphe de notification
         
         // Appel AJAX
         $.ajax({
